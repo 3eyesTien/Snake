@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "raylib.h"
+#include <deque>
 
 
 Color neonBlue = { 0, 230, 255, 255 };
@@ -11,6 +12,22 @@ Color cream = { 255, 243, 202, 255 };
 
 int cellSize = 30;
 int cellCount = 25; // Grid is 25cells x 25cells. 
+
+class Snake
+{
+public:
+    std::deque<Vector2> body = { Vector2{6,9}, Vector2{5, 9}, Vector2{4, 9} };
+
+    void Draw()
+    {
+        for (int i = 0; i < body.size(); i++)
+        {
+            int x = body[i].x;
+            int y = body[i].y;
+            DrawRectangle(x * cellSize, y * cellSize, cellSize, cellSize, darkGreen);
+        }
+    }
+};
 
 class Food {
 
@@ -49,12 +66,14 @@ int main()
     InitWindow(cellSize * cellCount, cellSize * cellCount, "Snake");
     SetTargetFPS(60);
     Food food = Food();
+    Snake snake = Snake();
 
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(BLACK);
         food.Draw();
+        snake.Draw();
         EndDrawing();
     }
 

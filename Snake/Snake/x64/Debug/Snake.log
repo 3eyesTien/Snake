@@ -1,7 +1,8 @@
 ﻿  Snake.cpp
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(35,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(35,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(40,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(41,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  LINK : C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\x64\Debug\Snake.exe not found or not built by the last incremental link; performing full link
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(25,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(26,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(52,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(52,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(57,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(58,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Snake.vcxproj -> C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\x64\Debug\Snake.exe
