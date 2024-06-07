@@ -3,4 +3,5 @@ C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cp
 C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(35,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(40,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(41,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  LINK : C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\x64\Debug\Snake.exe not found or not built by the last incremental link; performing full link
   Snake.vcxproj -> C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\x64\Debug\Snake.exe
