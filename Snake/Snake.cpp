@@ -15,6 +15,18 @@ int cellCount = 25; // Grid is 25cells x 25cells.
 
 double lastUpdateTime = 0;
 
+bool ElementInDeque(Vector2 element, std::deque<Vector2> deque)
+{
+    for (unsigned int i = 0; i < deque.size(); i++)
+    {
+        if (Vector2Equals(deque[i], element))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Method to check if it's time to update the snake movement otherwise
 // the snake updates 60 times per second/along with the framerate
 bool eventTriggered(double interval) 
@@ -59,12 +71,12 @@ public:
     Vector2 position;
     Texture2D texture;
 
-    Food()
+    Food(std::deque<Vector2> snakeBody)
     {
         Image image = LoadImage("Graphics/food.png");
         texture = LoadTextureFromImage(image);
         UnloadImage(image);
-        position = GenerateRandomPos();
+        position = GenerateRandomPos(snakeBody);
     }
 
     ~Food()
@@ -76,11 +88,23 @@ public:
         DrawTexture(texture, position.x * cellSize, position.y * cellSize, WHITE); // White means no color filter is being applied
     }
 
-    Vector2 GenerateRandomPos()
+    Vector2 GenerateRandomCell()
     {
         float x = GetRandomValue(0, cellCount - 1);
         float y = GetRandomValue(0, cellCount - 1);
         return Vector2{ x, y };
+    }
+
+    Vector2 GenerateRandomPos(std::deque<Vector2> snakeBody)
+    {
+        
+        Vector2 position = GenerateRandomCell();
+        while (ElementInDeque(position, snakeBody))
+        {
+            position = GenerateRandomCell();
+        }
+
+        return position;
     }
 };
 
@@ -88,7 +112,7 @@ class Game
 {
 public:
     Snake snake = Snake();
-    Food food = Food();
+    Food food = Food(snake.body);
     
     void Draw()
     {
@@ -99,6 +123,15 @@ public:
     void Update()
     {
         snake.Update();
+        CheckCollisionWithFood();
+    }
+
+    void CheckCollisionWithFood()
+    {
+        if (Vector2Equals(snake.body[0], food.position))
+        {
+            food.position = food.GenerateRandomPos(snake.body);
+        }
     }
 };
 
@@ -151,9 +184,9 @@ int main()
 * Create Blank Canvas and Game Loop - Done
 * Create Food - Done
 * Create Snake - Done
-* Move Snake
-* Make Snake eat Food
-* Make Snake grow longer
+* Move Snake - Done
+* Make Snake eat Food - Done
+* Make Snake grow longer - Working on
 * Check for collisions with edges and tail
 * Add title and frame
 * Keep score
