@@ -12,6 +12,7 @@ Color cream = { 255, 243, 202, 255 };
 
 int cellSize = 30;
 int cellCount = 25; // Grid is 25cells x 25cells. 
+int offset = 75;
 
 double lastUpdateTime = 0;
 
@@ -54,7 +55,7 @@ public:
         {
             float x = body[i].x;
             float y = body[i].y;
-            Rectangle segment = Rectangle{ x * cellSize, y * cellSize, (float)cellSize, (float)cellSize };
+            Rectangle segment = Rectangle{ offset + x * cellSize, offset + y * cellSize, (float)cellSize, (float)cellSize };
             DrawRectangleRounded(segment, 0.5, 6, neonBlue);
         }
     }
@@ -99,7 +100,7 @@ public:
     }
 
     void Draw() {
-        DrawTexture(texture, position.x * cellSize, position.y * cellSize, WHITE); // White means no color filter is being applied
+        DrawTexture(texture, offset + position.x * cellSize, offset + position.y * cellSize, WHITE); // White means no color filter is being applied
     }
 
     Vector2 GenerateRandomCell()
@@ -189,7 +190,7 @@ public:
 int main()
 {
     std::cout << "Starting the game" << std::endl;
-    InitWindow(cellSize * cellCount, cellSize * cellCount, "Snake");
+    InitWindow((2 * offset) + (cellSize * cellCount), (2 * offset) + (cellSize * cellCount), "Snake");
     SetTargetFPS(60);
 
     Game game = Game();
@@ -226,6 +227,8 @@ int main()
         }
 
         ClearBackground(cream);
+        DrawRectangleLinesEx(Rectangle{(float) offset-5, (float) offset-5, (float) cellSize * cellCount + 10, (float) cellSize * cellCount + 10 }, 5, darkGreen);
+        DrawText("Snake", offset - 5, 20, 40, darkGreen);
         game.Draw();
         EndDrawing();
     }
