@@ -4,7 +4,7 @@
 #include <iostream>
 #include "raylib.h"
 #include <deque>
-
+#include <raymath.h>
 
 Color neonBlue = { 0, 230, 255, 255 };
 Color darkGreen = { 43, 51, 24, 255 };
@@ -13,10 +13,27 @@ Color cream = { 255, 243, 202, 255 };
 int cellSize = 30;
 int cellCount = 25; // Grid is 25cells x 25cells. 
 
+double lastUpdateTime = 0;
+
+// Method to check if it's time to update the snake movement otherwise
+// the snake updates 60 times per second/along with the framerate
+bool eventTriggered(double interval) 
+{
+    double currentTime = GetTime();
+    if (currentTime - lastUpdateTime >= interval)
+    {
+        lastUpdateTime = currentTime;
+        return true;
+    }
+
+    return false;
+}
+
 class Snake
 {
 public:
     std::deque<Vector2> body = { Vector2{6,9}, Vector2{5, 9}, Vector2{4, 9} };
+    Vector2 direction = { 1, 0 };
 
     void Draw()
     {
@@ -27,6 +44,12 @@ public:
             Rectangle segment = Rectangle{ x * cellSize, y * cellSize, (float)cellSize, (float)cellSize };
             DrawRectangleRounded(segment, 0.5, 6, neonBlue);
         }
+    }
+
+    void Update()
+    {
+        body.pop_back();
+        body.push_front(Vector2Add(body[0], direction));
     }
 };
 
@@ -72,6 +95,12 @@ int main()
     while (!WindowShouldClose())
     {
         BeginDrawing();
+
+        if (eventTriggered(0.2))
+        {
+            snake.Update();
+        }
+
         ClearBackground(cream);
         food.Draw();
         snake.Draw();
@@ -86,7 +115,7 @@ int main()
 /*
 * Create Blank Canvas and Game Loop - Done
 * Create Food - Done
-* Create Snake
+* Create Snake - Done
 * Move Snake
 * Make Snake eat Food
 * Make Snake grow longer
