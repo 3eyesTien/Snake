@@ -1,6 +1,6 @@
 ﻿  Snake.cpp
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(88,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(88,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(93,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(94,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(96,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(96,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(101,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\Snake.cpp(102,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Snake.vcxproj -> C:\Users\nobodhi\Documents\GitHub\C++ Projects\Snake\raylib-snake\Snake\x64\Debug\Snake.exe
