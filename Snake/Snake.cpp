@@ -84,13 +84,31 @@ public:
     }
 };
 
+class Game 
+{
+public:
+    Snake snake = Snake();
+    Food food = Food();
+    
+    void Draw()
+    {
+        food.Draw();
+        snake.Draw();
+    }
+
+    void Update()
+    {
+        snake.Update();
+    }
+};
+
 int main()
 {
     std::cout << "Starting the game" << std::endl;
     InitWindow(cellSize * cellCount, cellSize * cellCount, "Snake");
     SetTargetFPS(60);
-    Food food = Food();
-    Snake snake = Snake();
+
+    Game game = Game();
 
     while (!WindowShouldClose())
     {
@@ -98,12 +116,29 @@ int main()
 
         if (eventTriggered(0.2))
         {
-            snake.Update();
+            game.Update();
+        }
+
+        // Movement controls
+        if (IsKeyPressed(KEY_UP) && game.snake.direction.y != 1) // Restrict snake from moving up if direction is already down
+        {
+            game.snake.direction = { 0, -1 }; // Make snake head move up a cell
+        }
+        if (IsKeyPressed(KEY_DOWN) && game.snake.direction.y != -1)
+        {
+            game.snake.direction = { 0, 1 }; 
+        }
+        if (IsKeyPressed(KEY_LEFT) && game.snake.direction.x != 1)
+        {
+            game.snake.direction = { -1, 0 }; 
+        }
+        if (IsKeyPressed(KEY_RIGHT) && game.snake.direction.x != -1)
+        {
+            game.snake.direction = { 1, 0 };
         }
 
         ClearBackground(cream);
-        food.Draw();
-        snake.Draw();
+        game.Draw();
         EndDrawing();
     }
 
